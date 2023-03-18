@@ -1,3 +1,18 @@
 {
-	"title": "Current Game"
+	"title": "Current Game",
+	"event": {
+		"GameStart": "The game started.",
+		"MinionsSpawning": "Minions have spawned.",
+		"FirstBrick": "{{KillerName}} took the first turret.",
+		"InhibKilled": "{{KillerName}} destroyed a inhibitor.",
+		"DragonKilled": "{{KillerName}} killed the {{DragonType}} dragon.",
+		"HeraldKill": "{{KillerName}} killed the Herald.",
+		"BaronKill": "{{KillerName}} killed the Baron.",
+		"ChampionKill": "{{KillerName}} killed {{VictimName}}.",
+		"KillStreak_2": "{{KillerName}} did a double kill.",
+		"KillStreak_3": "{{KillerName}} did a triple kill.",
+		"KillStreak_4": "{{KillerName}} did a quadra kill.",
+		"KillStreak_5": "{{KillerName}} did a penta kill.",
+		"Ace": "{{Acer}} did a ace."
+	}
 }

@@ -1,3 +1,18 @@
 {
-	"title": "Aktuelles Spiel"
+	"title": "Aktuelles Spiel",
+	"event": {
+		"GameStart": "Das Spiel hat begonnen.",
+		"MinionsSpawning": "Die Vasallen sind erschienen.",
+		"FirstBrick": "{{KillerName}} zerstörte den ersten Tum.",
+		"InhibKilled": "{{KillerName}} zerstörte einen Inhibitor.",
+		"DragonKilled": "{{KillerName}} tötete den {{DragonType}} Drachen.",
+		"HeraldKill": "{{KillerName}} tötete den Herald.",
+		"BaronKill": "{{KillerName}} tötete den Baron.",
+		"ChampionKill": "{{KillerName}} tötete {{VictimName}}.",
+		"KillStreak_2": "{{KillerName}} machte eine Doppeltötung.",
+		"KillStreak_3": "{{KillerName}} machte eine Dreifachtötung.",
+		"KillStreak_4": "{{KillerName}} machte eine Vierfachtötung.",
+		"KillStreak_5": "{{KillerName}} machte eine Fünffachtötung.",
+		"Ace": "{{Acer}} macht ein Ass."
+	}
 }

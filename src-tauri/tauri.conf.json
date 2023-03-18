@@ -19,7 +19,7 @@
       },
       "http": {
         "request": true,
-        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*"]
+        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*", "https://*.ngrok.io/*"]
       }
     },
     "bundle": {
