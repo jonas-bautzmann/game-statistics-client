@@ -1,0 +1,126 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"tsconfigRootDir": "./",
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"project": "./tsconfig.json",
+		"ecmaFeatures": {
+			"impliedStrict": true,
+			"jsx": true
+		}
+	},
+	"plugins": ["react-hooks", "import", "@typescript-eslint"],
+	"ignorePatterns": ["*.js", "next-env.d.ts"],
+	"extends": [
+		"prettier",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript",
+		"next/core-web-vitals"
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/resolver": {
+			"typescript": {
+				"project": ["./tsconfig.json"],
+				"paths": ["./"],
+				"extensions": [".ts", ".tsx", ".js", ".jsx"],
+				"moduleDirectory": ["node_modules", "../node_modules", "./"]
+			},
+			"node": {
+				"extensions": [".ts", ".tsx", ".js", ".jsx", ".d.ts", ".mjs"]
+			}
+		}
+	},
+	"rules": {
+		"no-multiple-empty-lines": "error",
+		"curly": ["error", "all"],
+		"eqeqeq": [
+			"error",
+			"always",
+			{
+				"null": "ignore"
+			}
+		],
+		"no-console": [
+			"error",
+			{
+				"allow": ["warn", "error"]
+			}
+		],
+		"no-var": "error",
+		"object-shorthand": [
+			"error",
+			"always",
+			{
+				"avoidQuotes": true
+			}
+		],
+		"spaced-comment": "error",
+		"sort-imports": [
+			"error",
+			{
+				"ignoreDeclarationSort": true
+			}
+		],
+		"no-return-assign": "error",
+		"no-useless-return": "error",
+		"default-case-last": "error",
+		"no-useless-call": "error",
+		"no-useless-concat": "error",
+		"no-lonely-if": "error",
+		"no-unsafe-negation": "error",
+		"no-extra-boolean-cast": "error",
+		"no-async-promise-executor": "error",
+		"no-await-in-loop": "error",
+		"no-promise-executor-return": "error",
+		"require-atomic-updates": "error",
+		"max-nested-callbacks": ["error", 3],
+		"no-return-await": "error",
+		"prefer-promise-reject-errors": "error",
+		"@typescript-eslint/await-thenable": "error",
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksVoidReturn": {
+					"attributes": false,
+					"properties": false
+				}
+			}
+		],
+		"@typescript-eslint/explicit-module-boundary-types": "error",
+		"@typescript-eslint/explicit-member-accessibility": "error",
+		"@typescript-eslint/promise-function-async": "error",
+		"@typescript-eslint/dot-notation": "error",
+		"@typescript-eslint/return-await": "error",
+		"@typescript-eslint/no-shadow": "error",
+		"@typescript-eslint/no-throw-literal": "error",
+		"@typescript-eslint/prefer-optional-chain": "error",
+		"@typescript-eslint/no-namespace": "error",
+		"@typescript-eslint/no-unnecessary-condition": "error",
+		"@typescript-eslint/no-unnecessary-type-constraint": "error",
+		"@typescript-eslint/no-floating-promises": "error",
+		"@typescript-eslint/prefer-as-const": "error",
+		"@typescript-eslint/prefer-includes": "error",
+		"@typescript-eslint/ban-ts-comment": "error",
+		"@typescript-eslint/no-empty-interface": [
+			"error",
+			{
+				"allowSingleExtends": true
+			}
+		],
+		"@typescript-eslint/switch-exhaustiveness-check": "error",
+		"react/prop-types": "error",
+		"react/display-name": "off",
+		"react/jsx-no-useless-fragment": "error",
+		"react/no-access-state-in-setstate": "error",
+		"react/jsx-uses-react": "error",
+		"react/react-in-jsx-scope": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "error"
+	}
+}

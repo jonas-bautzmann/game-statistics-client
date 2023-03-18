@@ -1,0 +1,17 @@
+# Next.js
+.next
+next-env.d.ts
+
+# Tauri
+src-tauri
+
+# IntelliJ project files
+.idea
+out
+gen
+
+# VS code
+.vscode
+
+# npm
+package-lock.json
