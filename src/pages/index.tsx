@@ -4,13 +4,9 @@ import { useTranslation } from "next-i18next"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import Head from "next/head"
 import { invoke } from "@tauri-apps/api/tauri"
-import { useState } from "react"
-
-// Note: When working with Next.js in development you have 2 execution contexts:
-// - The server (nodejs), where Tauri cannot be reached, because the current context is inside nodejs.
-// - The client (webview), where it is possible to interact with the Tauri rust backend.
-// To check if we are currently executing in the client context, we can check the type of the window object;
-const isClient = typeof window !== "undefined"
+import React, { useState } from "react"
+import isClient from "../utils/isClient"
+import Link from "next/link"
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
 	return { props: { ...(await serverSideTranslations(locale ?? defaultLocale ?? "en", ["common", "home"])) } }
@@ -22,7 +18,7 @@ const Home = (): JSX.Element => {
 	const [name, setName] = useState("")
 
 	async function greet() {
-		if (!isClient) {
+		if (!isClient()) {
 			return
 		}
 
@@ -51,6 +47,8 @@ const Home = (): JSX.Element => {
 					</form>
 				</div>
 				<p>{greetMsg}</p>
+
+				<Link href="/live/match">Live Game</Link>
 			</main>
 		</>
 	)

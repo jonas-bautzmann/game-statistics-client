@@ -28,4 +28,4 @@ dist-ssr
 /out/
 
 # env files
-src/.env*.local
+.env.local

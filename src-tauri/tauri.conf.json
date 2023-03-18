@@ -16,6 +16,10 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "http": {
+        "request": true,
+        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*"]
       }
     },
     "bundle": {
