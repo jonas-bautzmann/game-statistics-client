@@ -19,7 +19,7 @@
       },
       "http": {
         "request": true,
-        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*", "https://*.ngrok.io/*"]
+        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*", "https://*.ngrok.io/*", "https://localhost:2999/*", "https://ddragon.leagueoflegends.com/*"]
       }
     },
     "bundle": {
