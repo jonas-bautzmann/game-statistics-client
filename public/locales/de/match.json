@@ -3,7 +3,8 @@
 	"event": {
 		"GameStart": "Das Spiel hat begonnen.",
 		"MinionsSpawning": "Die Vasallen sind erschienen.",
-		"FirstBrick": "{{KillerName}} zerstörte den ersten Tum.",
+		"FirstBlood": "{{Recipient}} hat das erste Blut erreicht.",
+		"FirstBrick": "{{KillerName}} zerstörte den ersten Turm.",
 		"InhibKilled": "{{KillerName}} zerstörte einen Inhibitor.",
 		"DragonKilled": "{{KillerName}} tötete den {{DragonType}} Drachen.",
 		"HeraldKill": "{{KillerName}} tötete den Herald.",

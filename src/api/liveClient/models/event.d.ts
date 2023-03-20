@@ -2,6 +2,7 @@ export type EventName =
 	| "GameStart"
 	| "MinionsSpawning"
 	| "FirstBrick"
+	| "FirstBlood"
 	| "TurretKilled"
 	| "InhibKilled"
 	| "DragonKill"
@@ -14,6 +15,7 @@ export type EventName =
 export type Event =
 	| GameEvent
 	| FirstBrickEvent
+	| FirstBloodEvent
 	| TurretKilledEvent
 	| InhibKilledEvent
 	| DragonKilledEvent
@@ -43,6 +45,11 @@ export interface KillWithAssistsEvent extends KillEvent {
 
 export interface FirstBrickEvent extends KillEvent {
 	EventName: "FirstBrick"
+}
+
+export interface FirstBloodEvent extends BaseEvent {
+	EventName: "FirstBlood"
+	Recipient: string
 }
 
 export interface TurretKilledEvent extends KillWithAssistsEvent {
