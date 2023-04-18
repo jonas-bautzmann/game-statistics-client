@@ -3,10 +3,42 @@
 }
 
 .logo {
+	display: block;
 	height: 32px;
 	margin: 16px;
 	background: rgba(255, 255, 255, 0.3);
+	text-align: center;
+	vertical-align: center;
+	line-height: 32px;
 }
 
 .content {
+}
+
+.liveMatchIcon {
+	position: relative;
+
+	&::after {
+		position: absolute;
+		top: -0.25rem;
+		right: -0.4rem;
+		content: "";
+		animation: blink 1s infinite;
+		width: 0.45rem;
+		height: 0.45rem;
+		border-radius: 100%;
+		background: red;
+	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

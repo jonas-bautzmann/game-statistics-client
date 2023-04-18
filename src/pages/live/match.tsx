@@ -1,7 +1,5 @@
 import { Skeleton, Typography } from "antd"
 import { useQuery } from "@tanstack/react-query"
-import getAllLiveClientData from "../../api/liveClient/requests/getAllLiveClientData"
-import { useState } from "react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import { GetStaticProps } from "next"
@@ -9,12 +7,12 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "next-i18next"
 import { getPlayerBySummonerName } from "../../utils/liveGame"
 import EventTimeline from "../../components/eventTimeline/eventTimeline"
-import isClient from "../../utils/isClient"
 import getDataDragonVersions from "../../api/dataDragon/requests/getDataDragonVersions"
 import getChampions from "../../api/dataDragon/requests/getChampions"
 import getChampion from "../../api/dataDragon/requests/getChampion"
 import getItems from "../../api/dataDragon/requests/getItems"
 import getItem from "../../api/dataDragon/requests/getItem"
+import useAllLiveClientData from "../../api/liveClient/hooks/useAllLiveClientData"
 
 const REFETCH_INTERVAL_MS = 3000
 
@@ -24,21 +22,10 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) 
 
 const LiveGamePage = (): JSX.Element => {
 	const { t } = useTranslation()
-	const [interval, setInterval] = useState(0)
 	const router = useRouter()
 
-	const { data, isLoading } = useQuery({
-		queryKey: ["liveclientdata/allgamedata"],
-		queryFn: async () => {
-			if (!isClient()) {
-				return undefined
-			}
-
-			setInterval(prevState => prevState + 1)
-			return getAllLiveClientData()
-		},
+	const { data, isLoading } = useAllLiveClientData({
 		onError: async () => router.replace("/"),
-		refetchInterval: REFETCH_INTERVAL_MS,
 	})
 
 	const { data: version, isLoading: isVersionLoading } = useQuery({
@@ -127,7 +114,6 @@ const LiveGamePage = (): JSX.Element => {
 				>
 					<div>Your Champion: {getPlayerBySummonerName(data, data.activePlayer.summonerName).championName}</div>
 					<Link href="/">Home</Link>
-					<div>Interval: {interval}</div>
 					<EventTimeline allGameData={data} />
 					<div>{JSON.stringify(data, null, 2)}</div>
 				</div>
