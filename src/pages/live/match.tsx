@@ -13,6 +13,8 @@ import isClient from "../../utils/isClient"
 import getDataDragonVersions from "../../api/dataDragon/requests/getDataDragonVersions"
 import getChampions from "../../api/dataDragon/requests/getChampions"
 import getChampion from "../../api/dataDragon/requests/getChampion"
+import getItems from "../../api/dataDragon/requests/getItems"
+import getItem from "../../api/dataDragon/requests/getItem"
 
 const REFETCH_INTERVAL_MS = 3000
 
@@ -74,7 +76,44 @@ const LiveGamePage = (): JSX.Element => {
 		enabled: !!version && !!playerChampionId,
 	})
 
-	console.warn(isVersionLoading, champions, isChampionsLoading, champion, isChampionLoading)
+	const { data: items, isLoading: isItemsLoading } = useQuery({
+		queryKey: ["datadragon/items"],
+		queryFn: async () => {
+			if (!version) {
+				throw new Error("Version is not defined.")
+			}
+			return getItems(version)
+		},
+		enabled: !!version,
+	})
+
+	const playerItemId = data?.allPlayers[1].items[1].itemID
+
+	const { data: item, isLoading: isItemLoading } = useQuery({
+		queryKey: ["datadragon/item", playerItemId],
+		queryFn: async () => {
+			if (!version) {
+				throw new Error("Version is not defined.")
+			}
+			if (!playerItemId) {
+				throw new Error("playerItemId is not defined.")
+			}
+			return getItem(version, playerItemId)
+		},
+		enabled: !!version && !!playerItemId,
+	})
+
+	console.warn(
+		isVersionLoading,
+		champions,
+		isChampionsLoading,
+		champion,
+		isChampionLoading,
+		items,
+		item,
+		isItemLoading,
+		isItemsLoading,
+	)
 
 	return (
 		<div>
@@ -82,16 +121,16 @@ const LiveGamePage = (): JSX.Element => {
 			{isLoading && <Skeleton active />}
 			{!isLoading && !!data && (
 				<div
-						style={{
-							backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${playerChampionId}_0.jpg)`,
-						}}
-					>
-						<div>Your Champion: {getPlayerBySummonerName(data, data.activePlayer.summonerName).championName}</div>
-						<Link href="/">Home</Link>
-						<div>Interval: {interval}</div>
-						<EventTimeline allGameData={data} />
-						<div>{JSON.stringify(data, null, 2)}</div>
-					</div>
+					style={{
+						backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${playerChampionId}_0.jpg)`,
+					}}
+				>
+					<div>Your Champion: {getPlayerBySummonerName(data, data.activePlayer.summonerName).championName}</div>
+					<Link href="/">Home</Link>
+					<div>Interval: {interval}</div>
+					<EventTimeline allGameData={data} />
+					<div>{JSON.stringify(data, null, 2)}</div>
+				</div>
 			)}
 		</div>
 	)
