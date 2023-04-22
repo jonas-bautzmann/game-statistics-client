@@ -3,6 +3,7 @@
 	"event": {
 		"GameStart": "The game started.",
 		"MinionsSpawning": "Minions have spawned.",
+		"FirstBlood": "{{Recipient}} got first blood.",
 		"FirstBrick": "{{KillerName}} took the first turret.",
 		"InhibKilled": "{{KillerName}} destroyed a inhibitor.",
 		"DragonKilled": "{{KillerName}} killed the {{DragonType}} dragon.",
