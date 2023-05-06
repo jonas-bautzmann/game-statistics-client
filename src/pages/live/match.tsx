@@ -14,8 +14,6 @@ import getItems from "../../api/dataDragon/requests/getItems"
 import getItem from "../../api/dataDragon/requests/getItem"
 import useAllLiveClientData from "../../api/liveClient/hooks/useAllLiveClientData"
 
-const REFETCH_INTERVAL_MS = 3000
-
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
 	return { props: { ...(await serverSideTranslations(locale ?? defaultLocale ?? "en", ["common", "match"])) } }
 }

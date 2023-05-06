@@ -14,12 +14,39 @@
     "allowlist": {
       "all": false,
       "shell": {
-        "all": false,
-        "open": true
+        "all": true,
+        "scope": [
+          {
+            "name": "mac-process-command",
+            "cmd": "ps x -o args | grep 'LeagueClientUx'"
+          },
+          {
+            "name": "win-process-command",
+            "cmd": "WMIC PROCESS WHERE name='LeagueClientUx.exe' GET commandline"
+          }
+        ]
+      },
+      "fs": {
+        "all": true,
+        "scope": [
+          "**"
+        ]
+      },
+      "path": {
+        "all": true
+      },
+      "os": {
+        "all": true
       },
       "http": {
         "request": true,
-        "scope": ["http://localhost:3001/api/*", "https://*.riotgames.com/*", "https://*.ngrok.io/*", "https://localhost:2999/*", "https://ddragon.leagueoflegends.com/*"]
+        "scope": [
+          "http://localhost:3001/api/*",
+          "https://*.riotgames.com/*",
+          "https://*.ngrok.io/*",
+          "https://localhost:2999/*",
+          "https://ddragon.leagueoflegends.com/*"
+        ]
       }
     },
     "bundle": {
