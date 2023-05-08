@@ -1,0 +1,220 @@
+@font-face {
+	font-family: "HankenGrotesk";
+	font-display: swap;
+	font-weight: 100 900;
+	src: url("../../public/HankenGrotesk-VariableFont_wght.ttf") format("truetype");
+}
+
+:root {
+	--clr-primary-hsl-400: 252, 100%, 67%;
+	--clr-primary-hsl-500: 256, 72%, 46%;
+	--clr-secondary-hsl-400: 241, 81%, 54%;
+	--clr-secondary-hsl-500: 241, 72%, 46%;
+
+	--clr-neutral-hsl-100: 0, 0%, 100%;
+	--clr-neutral-hsl-200: 221, 100%, 96%;
+	--clr-neutral-hsl-300: 241, 100%, 89%;
+	--clr-neutral-hsl-700: 224, 30%, 27%;
+
+	--clr-neutral-100: hsl(var(--clr-neutral-hsl-100));
+	--clr-neutral-200: hsl(var(--clr-neutral-hsl-200));
+	--clr-neutral-300: hsl(var(--clr-neutral-hsl-300));
+	--clr-neutral-700: hsl(var(--clr-neutral-hsl-700));
+
+	--clr-primary-400: hsl(var(--clr-primary-hsl-400));
+	--clr-primary-500: hsla(var(--clr-primary-hsl-500));
+	--clr-secondary-400: hsl(var(--clr-secondary-hsl-400));
+
+	--gradient-primary: linear-gradient(var(--clr-primary-400), var(--clr-secondary-400));
+
+	--gradient-to-transparent: linear-gradient(var(--clr-primary-500), hsl(var(--clr-secondary-hsl-500), 0));
+
+	--clr-accent-1: 0, 100%, 67%;
+	--clr-accent-2: 39, 100%, 56%;
+	--clr-accent-3: 166, 100%, 37%;
+	--clr-accent-4: 234, 85%, 45%;
+
+	--font-family-default: "HankenGrotesk", sans-serif;
+
+	--fw-regular: 500;
+	--fw-bold: 700;
+	--fw-black: 800;
+
+	--fs-400: 1.125rem;
+	--fs-500: 1.25rem;
+	--fs-600: 1.5rem;
+	--fs-700: 1.75rem;
+	--fs-800: 2rem;
+	--fs-900: 5rem;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+	font: inherit;
+}
+
+main {
+	height: 100%;
+	font-family: var(--font-family-default);
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 5fr 2fr 3fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-gap: 10px;
+	height: 100%;
+}
+
+.top-hero-card {
+	display: flex;
+	flex-direction: row;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 1;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	border-radius: 20px;
+}
+
+.top-hero-stats {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	color: hsl(var(--clr-neutral-hsl-100), 0.7);
+	font-weight: bold;
+	padding: 30px;
+}
+
+.top-hero-name {
+	height: 50%;
+	text-transform: uppercase;
+	color: hsl(var(--clr-neutral-hsl-100), 0.7);
+	vertical-align: center;
+}
+
+.top-hero-stats span {
+	display: inline;
+	font-size: var(--fs-700);
+	font-weight: var(--fw-black);
+	line-height: 2;
+	color: red;
+	padding-right: 10px;
+}
+
+.top-hero-image {
+	min-width: 50%;
+	display: flex;
+	align-content: end;
+}
+
+.top-hero-games {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-flow: column;
+	grid-gap: 10px;
+	height: 25%;
+	font-weight: bold;
+}
+
+.top-hero-games h2 {
+	color: hsl(var(--clr-neutral-hsl-100), 0.7);
+}
+
+.top-hero-games p {
+	color: hsl(var(--clr-neutral-hsl-100));
+	padding-left: 20px;
+}
+
+.top-hero-kda {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-flow: column;
+	grid-gap: 10px;
+	height: 25%;
+	font-weight: bold;
+}
+
+.top-hero-kda h2 {
+	color: hsl(var(--clr-neutral-hsl-100), 0.7);
+}
+
+.top-hero-kda p {
+	color: hsl(var(--clr-neutral-hsl-100));
+	padding-left: 20px;
+}
+
+.competitive-card {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 1;
+	grid-row-start: 3;
+	grid-row-end: 5;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.stats-card1 {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 2;
+	grid-row-start: 1;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.stats-card2 {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 2;
+	grid-row-start: 2;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.stats-card3 {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 2;
+	grid-row-start: 3;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.stats-card4 {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 2;
+	grid-row-start: 4;
+	text-transform: uppercase;
+	border-radius: 20px;
+}
+
+.match-history {
+	display: flex;
+	flex-direction: row;
+	padding: 30px;
+	background-color: rgb(25, 25, 39);
+	grid-column-start: 3;
+	grid-row-start: 1;
+	grid-row-end: 5;
+	text-transform: uppercase;
+	border-radius: 20px;
+}

@@ -1,4 +1,5 @@
 import "../styles/globals.scss"
+import "../styles/style.css"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import { appWithTranslation } from "next-i18next"

@@ -54,7 +54,7 @@ const AppLayout = ({ children }: LayoutProps): JSX.Element => {
 							  }
 							: undefined,
 						{
-							key: "profile",
+							key: "viz",
 							icon: <VideoCameraOutlined />,
 							label: "nav 2",
 						},
